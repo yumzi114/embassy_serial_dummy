@@ -1,9 +1,8 @@
-# embassy_espc3
-ESP32C3 보드용 기본 embassy 설정 템플릿
+# embassy_serial_dummy
 
-cargo generate esp-rs/esp-template 템플릿에서 esp-hal 다운그레이드
-embassy-executor 0.5 사용
-라이브러리 다운그레이드
+시리얼 테스트용 더미
+인터럽트 버튼을 통한 통신속도 딜레이 조절
+![Uploading IMG_2537-ezgif.com-video-to-gif-converter (1).gif…]()
 
 
 
