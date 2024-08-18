@@ -1,0 +1,33 @@
+[package]
+name = "embassy_espc3"
+version = "0.1.0"
+authors = ["yum <yumzi114@gmail.com>"]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+
+embassy-executor = "0.5.0"
+embassy-time = { version = "0.3.2", features = ["generic-queue-8"] }
+esp-backtrace = { version = "0.13.0", features = [
+    "esp32c3",
+    "exception-handler",
+    "panic-handler",
+    "println",
+] }
+esp-hal = { version = "0.17.0", features = [ "esp32c3","embassy", "embassy-time-timg0", "embassy-executor-thread"] }
+esp-println = { version = "0.10.0", features = ["esp32c3", "log"] }
+log = { version = "0.4.21" }
+[profile.dev]
+# Rust debug is too slow.
+# For debug builds always builds with some optimization
+opt-level = "s"
+
+[profile.release]
+codegen-units = 1 # LLVM can perform better optimizations using a single thread
+debug = 2
+debug-assertions = false
+incremental = false
+lto = 'fat'
+opt-level = 's'
+overflow-checks = false
